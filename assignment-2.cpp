@@ -14,16 +14,20 @@ void displayFlightMenu()
     cout << left << setw(8) << "3." << setw(12) << "11:00" << setw(12) << "13:30" << endl;
     cout << left << setw(8) << "4." << setw(12) << "13:00" << setw(12) << "15:30" << endl;
     cout << left << setw(8) << "5." << setw(12) << "15:00" << setw(12) << "17:30" << endl;
-    cout << "\nChoose the time by entering the option number from the displayed list [1-5]: \n"
-         << endl;
 }
 int main()
 {
     // 1. prompt user to input their full name
     string fullName;
     int preferredDepartureTime;
-    cout << "Welcome to COS1511 Flight Booking System\n\nPlease enter your full name: ";
+    cout << "Please enter your full name: ";
     getline(cin, fullName, '\n');
+    cout << "\nWelcome to COS1511 Flight Booking System\n\n";
     // 2. display a menu showing the available times for the flight. Then validate the selected time
     displayFlightMenu();
+    cout << "\n"
+         << fullName << ", please choose the time by entering the option number from the displayed list [1-5]: \n"
+         << endl;
+
+    return 0;
 }
