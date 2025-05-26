@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip> //new library
+#include <limits>  //required for numeric limts in validation
 using namespace std;
 
 // make Menu a function instead to remove repetition
@@ -21,13 +22,24 @@ int main()
     string fullName;
     int preferredDepartureTime;
     cout << "\nPlease enter your full name: ";
-    getline(cin, fullName, '\n');
+    getline(cin, fullName);
     cout << "\n"
          << fullName << ", welcome to the COS1511 Flight Booking System\n\n";
     // 2. display a menu showing the available times for the flight. Then validate the selected time
-    displayFlightMenu();
-    cout << "\nPlease choose a departure time by entering the option number from the above displayed list [1-5]: \n"
-         << endl;
+    do
+    {
+        displayFlightMenu();
+        cout << "\nPlease choose a departure time by entering the option number from the above displayed list [1-5]: ";
 
+        // CHECKING THE OPTION SELECTED
+        while (!(cin >> preferredDepartureTime) || preferredDepartureTime < 1 || preferredDepartureTime > 5)
+        {
+            cout << "Invalid input. Please enter number between 1 and 5: ";
+            // new stuff and headers, dont quite understand fully yet...but its basically to clear the error flags, and to ignore the remaining input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cout << "\nYou have selected option " << preferredDepartureTime << endl;
+    } while (false);
     return 0;
 }
