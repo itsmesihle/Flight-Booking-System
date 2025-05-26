@@ -20,13 +20,13 @@ int main()
     // 1. prompt user to input their full name
     string fullName;
     int preferredDepartureTime;
-    cout << "Please enter your full name: ";
+    cout << "\nPlease enter your full name: ";
     getline(cin, fullName, '\n');
-    cout << "\nWelcome to COS1511 Flight Booking System\n\n";
+    cout << "\n"
+         << fullName << ", welcome to the COS1511 Flight Booking System\n\n";
     // 2. display a menu showing the available times for the flight. Then validate the selected time
     displayFlightMenu();
-    cout << "\n"
-         << fullName << ", please choose the time by entering the option number from the displayed list [1-5]: \n"
+    cout << "\nPlease choose a departure time by entering the option number from the above displayed list [1-5]: \n"
          << endl;
 
     return 0;
